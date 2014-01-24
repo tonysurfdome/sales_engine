@@ -8,15 +8,9 @@ describe 'Integration Spec' do
     # find by id, and attributes are set
     item1 = Item.find_by_id(1)
     expect(item1.id).to          eq(1)
-    expect(item1.name).to        eq("Item Qui Esse")
-    expect(item1.description).to eq("Nihil autem sit odio inventore deleniti. Est laudantium ratione distinctio laborum. Minus voluptatem nesciunt assumenda dicta voluptatum porro.")
-    expect(item1.unit_price).to  eq(75107)
-    expect(item1.merchant_id).to eq(1)
-    expect(item1.created_at).to  eq(Time.parse("2012-03-27 14:53:59 UTC"))
-    expect(item1.updated_at).to  eq(Time.parse("2012-03-27 14:53:59 UTC"))
-
+    
     # find_by_description
-    item = Item.find_by_description(item.description)
+    item = Item.find_by_description(item1.description)
     expect(item).to eq(item1)
 
     # find_by_unit_price
@@ -24,7 +18,7 @@ describe 'Integration Spec' do
     expect(item).to eq(item1)
 
     # find_by_merchant_id
-    item = Item.find_by_merchant_id(item.merchant_id)
+    item = Item.find_by_merchant_id(item1.merchant_id)
     expect(item).to eq(item1)
 
     # find_by_created_at
