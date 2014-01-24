@@ -16,7 +16,7 @@ describe 'Integration Spec' do
     expect(item1.updated_at).to  eq(Time.parse("2012-03-27 14:53:59 UTC"))
 
     # find_by_description
-    item = Item.find_by_description(item.description)
+    item = Item.find_by_description(item1.description)
     expect(item).to eq(item1)
 
     # find_by_unit_price
@@ -24,7 +24,7 @@ describe 'Integration Spec' do
     expect(item).to eq(item1)
 
     # find_by_merchant_id
-    item = Item.find_by_merchant_id(item.merchant_id)
+    item = Item.find_by_merchant_id(item1.merchant_id)
     expect(item).to eq(item1)
 
     # find_by_created_at
