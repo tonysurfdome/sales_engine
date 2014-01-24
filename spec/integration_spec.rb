@@ -67,7 +67,7 @@ describe 'Integration Spec' do
     expect(merchant1.updated_at).to  eq(Time.parse("2012-03-27 14:53:59 UTC"))
 
     # find_by_name
-    merchant = Item.find_by_name(merchant1.name)
+    merchant = Merchant.find_by_name(merchant1.name)
     expect(merchant).to eq(merchant1)
 
     # find_by_created_at

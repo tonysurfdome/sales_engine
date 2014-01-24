@@ -3,7 +3,7 @@ require_relative 'merchant'
 
 class Item
   
-  attr_reader :id,:name,:description,:unit_price,:merchant_id,:created_at,:updated_at,:merchant
+  attr_reader :id,:name,:description,:unit_price,:merchant_id,:created_at,:updated_at
 
   def initialize(args)
     @id = args[:id].to_i
@@ -13,12 +13,20 @@ class Item
     @merchant_id = args[:merchant_id].to_i
     @created_at = Time.parse args[:created_at]
     @updated_at = Time.parse args[:updated_at]
-
-    @merchant = Merchant.new({id: @merchant_id})
   end 
+
+  def merchant
+    @merchant ||= Merchant.find_by_id(@merchant_id)
+  end
+
+
 
   class << self
     attr_accessor :items
+  end
+
+  def self.clear
+    @items = []
   end
 
   def self.items
@@ -31,6 +39,10 @@ class Item
 
   def self.find_by_id(id)
     find_one('id', id)
+  end
+
+  def self.find_by_name(name)
+    find_one('name', name)
   end
 
   def self.find_by_description(description)
