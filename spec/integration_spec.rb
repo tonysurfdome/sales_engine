@@ -12,8 +12,8 @@ describe 'Integration Spec' do
     expect(item1.description).to eq("Nihil autem sit odio inventore deleniti. Est laudantium ratione distinctio laborum. Minus voluptatem nesciunt assumenda dicta voluptatum porro.")
     expect(item1.unit_price).to  eq(75107)
     expect(item1.merchant_id).to eq(1)
-    expect(item1.created_at).to  eq(Time.parese("2012-03-27 14:53:59 UTC")
-    expect(item1.updated_at).to  eq(Time.parese("2012-03-27 14:53:59 UTC")
+    expect(item1.created_at).to  eq(Time.parse("2012-03-27 14:53:59 UTC"))
+    expect(item1.updated_at).to  eq(Time.parse("2012-03-27 14:53:59 UTC"))
 
     # find_by_description
     item = Item.find_by_description(item.description)
